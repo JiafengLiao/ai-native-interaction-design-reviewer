@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI-Native Interaction Design Reviewer"
+  short_description: "Redesign product flows for AI-native work"
+  default_prompt: "Use $ai-native-interaction-design-reviewer to review this flow in Dual-track mode."
