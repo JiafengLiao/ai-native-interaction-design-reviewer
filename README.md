@@ -23,6 +23,7 @@ You do not need to know product-design or AI terminology. The skill first explai
 - **Produces a buildable package:** includes interaction, AI capability, data, tool, permission, failure, operations, delivery, and measurement specifications.
 - **Balances efficiency with human outcomes:** speed must improve without unacceptable regressions in quality, safety, control, recovery, trust, or accessibility.
 - **Treats “no AI” as valid:** recommends deterministic software or process change when AI is not justified.
+- **Uses the smallest sufficient system:** removes, simplifies, combines, and reuses before adding features, roles, integrations, AI capabilities, or autonomy.
 
 ## Method
 
@@ -148,4 +149,4 @@ These sources support the method. Project-specific claims still require project-
 
 ## Core principle
 
-> User-goal-first, evidence-led, AI-enabled, human-controlled, measurably better.
+> User-goal-first, evidence-led, minimum-sufficient, AI-enabled, human-controlled, measurably better.

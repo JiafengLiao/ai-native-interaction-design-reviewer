@@ -1,4 +1,4 @@
 interface:
   display_name: "AI-Native System Design Guide"
-  short_description: "Turn AI ideas into clear, testable product plans"
-  default_prompt: "Use $ai-native-interaction-design-reviewer to first explain in plain language how you can help, then guide my idea into a clear, buildable, and testable AI product plan."
+  short_description: "Simplify AI ideas into clear, testable product plans"
+  default_prompt: "Use $ai-native-interaction-design-reviewer to explain how you can help, then find the simplest sufficient way to turn my idea into a clear, buildable, and testable AI product plan."

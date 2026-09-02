@@ -1,6 +1,6 @@
 # Implementation Blueprint
 
-Use this reference to turn the target experience into a cross-functional package that product, design, engineering, data, research, risk, and operations can act on.
+Use this reference to turn the target experience into a cross-functional package that product, design, engineering, data, research, risk, and operations can act on. Treat it as a menu, not a completeness checklist. Include only what is necessary to deliver and evaluate the first coherent user outcome and address material risks.
 
 ## Table of contents
 
@@ -52,11 +52,11 @@ User steering or policy check → Bounded action → Verification →
 Outcome → Recovery, learning, or monitoring
 ```
 
-Annotate owner, user involvement, required capability, evidence dependency, commitment, and recovery for every meaningful step. Explicitly identify removed, automated, preserved, and newly introduced work.
+Annotate owner, user involvement, required capability, evidence dependency, commitment, and recovery for every meaningful step. Explicitly identify removed, simplified, reused, automated, preserved, and newly introduced work. For each new entity, state the problem it solves and why an existing entity cannot do the job adequately.
 
 ## 3. Interaction specification
 
-Specify critical moments and states, not every pixel.
+Specify critical moments and states, not every pixel. Merge states that do not differ in user choice, system behavior, commitment, visibility, or recovery.
 
 | Moment | Entry condition | User sees | System does | User controls | Exit/commitment | Failure/recovery |
 |---|---|---|---|---|---|---|
@@ -82,7 +82,7 @@ Prefer the interaction best suited to the task: direct manipulation, forms, tabl
 
 ## 4. AI system contract
 
-Define each AI capability as a bounded contract:
+Define each necessary AI capability as a bounded contract. Do not create a separate capability when an existing capability or deterministic rule can meet the same need:
 
 | Capability | Intended job | Required inputs/context | Output schema | Quality criteria | Confidence/uncertainty | Human role | Prohibited behavior | Fallback |
 |---|---|---|---|---|---|---|---|---|
@@ -103,6 +103,8 @@ Do not use “the AI understands” as a requirement. Express observable inputs,
 
 ### Context and data map
 
+Include only data needed for the stated outcome, safety, or evaluation. Reuse authorized context before adding a source, and do not collect speculative “future-use” data.
+
 | Data/context | Source | Purpose | Freshness | Sensitivity | User visibility/control | Retention | Failure if absent |
 |---|---|---|---|---|---|---|---|
 
@@ -122,7 +124,7 @@ Create a failure matrix:
 | Failure | Detection | User impact | Automatic response | User/human action | Preserved progress | Recovery/compensation | Escalation owner |
 |---|---|---|---|---|---|---|---|
 
-Cover at least:
+Cover plausible and material failures. Do not enumerate low-impact theoretical cases that would not change the design. Consider:
 
 - Missing, stale, contradictory, or unauthorized context
 - Low-confidence or structurally invalid output
@@ -137,7 +139,7 @@ Define operational ownership for policy updates, exception queues, incidents, mo
 
 Plan vertical slices that deliver a testable user outcome, not horizontal layers such as “build the AI” and “build the UI.”
 
-Recommended progression:
+Possible progression; start with the smallest slice that tests the riskiest assumption and stop escalating when a simpler level meets the outcome and guardrails:
 
 1. **Concierge or manual-backed test:** validate the goal and workflow before complex automation.
 2. **Read-only context + suggestion:** test relevance and mental model without external action.
@@ -146,7 +148,7 @@ Recommended progression:
 5. **Policy-bound execution:** automate representative low-risk cases with monitoring.
 6. **Persistent monitoring and exceptions:** add R4 continuity only after evidence and operations are adequate.
 
-For each slice specify user outcome, included/excluded cases, interaction, capabilities, data/tools, guardrails, instrumentation, test, owner, dependencies, and exit criteria.
+For each selected slice specify user outcome, included/excluded cases, interaction, capabilities, data/tools, guardrails, instrumentation, test, owner, dependencies, and exit criteria. Do not plan later slices before their need is supported.
 
 ## 8. Readiness gates
 

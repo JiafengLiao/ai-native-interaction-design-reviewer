@@ -1,6 +1,6 @@
 # End-to-End Review and Design Framework
 
-Use this reference for a full review, guided design, or implementation-ready blueprint. Tailor the pacing to the user and the depth to the evidence. Do not fabricate research, metrics, capabilities, or feasibility.
+Use this reference for a full review, guided design, or implementation-ready blueprint. Tailor the pacing to the user and the depth to the evidence. Apply the minimum-sufficient-system principle throughout; treat sections and templates as conditional tools, not required output. Do not fabricate research, metrics, capabilities, or feasibility.
 
 ## Table of contents
 
@@ -88,7 +88,7 @@ When analytics are missing, run the lightweight baseline sprint. Pass G2 when th
 
 ## 4. Stage 4 — Diagnose the workflow
 
-Prioritize 3–7 structural frictions. Use [ai-native-smells.md](ai-native-smells.md) for recurring patterns.
+Prioritize the smallest set of structural frictions that explains the important burden—usually 1–3, expanding only when distinct problems would otherwise be hidden. Use [ai-native-smells.md](ai-native-smells.md) for recurring patterns.
 
 For each friction provide:
 
@@ -108,6 +108,8 @@ Do not diagnose “lack of AI” as a friction. Diagnose unmet outcomes and burd
 
 For every meaningful step, ask whether a person actually needs to do it.
 
+Evaluate each step in this order: remove it, simplify it, combine it with another step, reuse known context or an existing capability, apply deterministic automation, then consider bounded AI. Consider autonomous execution only when the recurring value exceeds its added permissions, monitoring, recovery, and operational burden.
+
 | Current step | Current owner | Proposed role | Required context/capability | User role | Risk | Evidence dependency |
 |---|---|---|---|---|---|---|
 
@@ -123,7 +125,7 @@ Use these proposed roles:
 - **Monitor:** watch for a condition over time
 - **Escalate:** involve a person for ambiguity, policy, risk, or exception
 
-Summarize work to Remove, Automate, Preserve, and Add. Name the required context, integrations, policies, memory, operations, and evaluation.
+Summarize work to Remove, Simplify or Combine, Reuse, Automate, Preserve, and Add. Name only the context, integrations, policies, memory, operations, and evaluation required by the chosen direction.
 
 Apply [autonomy-framework.md](autonomy-framework.md) action by action. One workflow may contain multiple autonomy levels.
 
@@ -153,11 +155,11 @@ Compare:
 | Continuity |  |  |  |
 | Expected benefit and evidence |  |  |  |
 
-For each track show actor ownership, removed and new work, required capabilities, user checkpoints, failure path, and evidence gaps. Reject the North Star when the added complexity, cost, risk, or loss of control is not justified.
+For each track show actor ownership, removed and new work, required capabilities, user checkpoints, failure path, and evidence gaps. For each new entity, name the problem it solves and why reuse or a simpler mechanism is insufficient. Reject the North Star when the added complexity, cost, risk, or loss of control is not justified.
 
 ## 7. Stage 7 — Build the implementation blueprint
 
-Use [implementation-blueprint.md](implementation-blueprint.md) to produce:
+Use [implementation-blueprint.md](implementation-blueprint.md) as a menu. Produce only what the first coherent outcome and its material risks require:
 
 - Target Experience Blueprint
 - Critical interaction and state specification
@@ -168,13 +170,13 @@ Use [implementation-blueprint.md](implementation-blueprint.md) to produce:
 - Instrumentation requirements
 - Testable vertical delivery slices
 
-Do not call a design build-ready when it omits dependencies, failure paths, evaluation, or hidden manual work.
+Do not call a design build-ready when it omits material dependencies, failure paths, evaluation, or hidden manual work. Do not add speculative components merely to make the blueprint look complete.
 
 Pass G3 when the operating model is coherent. Pass G4 only when the first delivery slice can be implemented and evaluated without material product decisions left to the implementer.
 
 ## 8. Stage 8 — Define evaluation
 
-Use [evidence-and-evaluation.md](evidence-and-evaluation.md) to create:
+Use [evidence-and-evaluation.md](evidence-and-evaluation.md) to create the smallest metric and evidence set that can detect the intended benefit and material regressions:
 
 - Metric tree linked to the user outcome
 - Primary efficiency measure
