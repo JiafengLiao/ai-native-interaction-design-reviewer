@@ -1,46 +1,107 @@
 # AI-Native Interaction Design Reviewer
 
-An installable Codex skill that helps anyone—from a first-time builder to an experienced product team—turn a rough idea, existing workflow, PRD, screenshot, or prototype into an evidence-backed, user-friendly, implementation-ready AI-native system.
+**Design AI products that do less—and work better.**
 
-The skill does more than review screens. It guides the work from user goal and baseline through workflow redesign, human/AI responsibility, interaction states, system requirements, evaluation, and pilot planning.
+Turn a rough idea, workflow, screenshot, PRD, or prototype into the smallest evidence-backed AI system worth building: useful to people, clear about what AI should and should not do, safe to operate, and ready to test.
 
-You do not need to know product-design or AI terminology. The skill first explains what it can help with, asks a few concrete questions in everyday language, and introduces professional terms only when they become useful.
+This Codex skill is for first-time builders and experienced product teams alike. It explains unfamiliar concepts before using professional terminology and adapts its depth to the material you bring.
 
-## What it helps you do
+> AI-native does not mean adding chat everywhere. It means starting from the user's real goal, removing unnecessary work, and giving people and AI the responsibilities each can handle best.
 
-1. Clarify what the person is really trying to accomplish.
-2. Understand how the work happens today and where effort, waiting, or mistakes occur.
-3. Decide what a person should control and what AI may suggest, prepare, or do.
-4. Design a safer experience, including confirmation, correction, and recovery.
-5. Turn the direction into a practical build-and-test plan.
+## Why use it
 
-## What makes it different
+AI product work often starts too late in the process—with a feature, model, prompt, or screen already chosen. This skill helps you step back before expensive decisions harden.
 
-- **Works at any experience level:** automatically adapts to Beginner, Standard, or Expert mode without lowering the final quality bar.
-- **Does not require existing analytics:** starts with a lightweight task walkthrough and clearly labels unproven benefits.
-- **Supports existing flows and 0-to-1 products:** compares against the current workflow, workaround, substitute, or analogue.
-- **Separates design quality from evidence:** no false-precision maturity total or unsupported ROI claim.
-- **Produces a buildable package:** includes interaction, AI capability, data, tool, permission, failure, operations, delivery, and measurement specifications.
-- **Balances efficiency with human outcomes:** speed must improve without unacceptable regressions in quality, safety, control, recovery, trust, or accessibility.
-- **Treats “no AI” as valid:** recommends deterministic software or process change when AI is not justified.
-- **Uses the smallest sufficient system:** removes, simplifies, combines, and reuses before adding features, roles, integrations, AI capabilities, or autonomy.
+It helps you:
 
-## Method
+- find the real user outcome behind a feature request;
+- see where time, attention, coordination, and trust are being lost;
+- remove, simplify, combine, or reuse before adding new machinery;
+- decide what stays human and what AI may suggest, prepare, execute, or monitor;
+- turn the direction into a buildable first slice with safeguards and a real test;
+- reject AI when ordinary software or process change is the better answer.
 
-The skill uses a stage-gated loop:
+No analytics? No polished PRD? No product-design vocabulary? You can still start.
+
+## Try it in one prompt
 
 ```text
-Goal → Evidence → Baseline → Diagnosis → Responsibility →
-System Design → Implementation Blueprint → Evaluation → Pilot & Learning
-                         ↖──────── evidence-driven return ────────↙
+Use $ai-native-interaction-design-reviewer to help me improve this idea.
+First explain in plain language how you can help, then guide me toward the
+simplest useful solution. I have no product design experience.
+
+[Describe the idea or paste the workflow here]
 ```
 
-The method tracks how strongly each claim is supported—from something only stated, through walkthrough and observation, to measurement or testing. In formal work these levels are abbreviated E0–E4, but the skill explains the meaning before using a code. Missing metrics do not stop the work; an untested belief simply cannot be presented as proven efficiency.
+The skill will not bury you in a framework. It starts with a few concrete questions, shows what it has learned, and makes useful progress at each step.
 
-The default design view shows two horizons:
+## What you get
 
-- **Practical next step:** improve today's flow or rearrange who does what across people and AI (called R1/R2 in the formal framework).
-- **AI-native North Star:** rethink the workflow from the person's underlying goal (R3), adding persistent delegation (R4) only when it is useful and safe.
+| The question you need answered | What the skill produces |
+|---|---|
+| What problem are we really solving? | A clear user goal, trigger, outcome, constraints, and non-goals |
+| Is this a real problem or only a belief? | An evidence map that separates facts, observations, assumptions, and unknowns |
+| Where should AI help? | A simpler target workflow with explicit human, AI, system, and operational responsibilities |
+| How do we keep people in control? | Interaction states, permissions, confirmations, correction, recovery, and fallback |
+| What should we build first? | The smallest coherent delivery slice, dependencies, risks, and evaluation plan |
+| How will we know it is better? | Efficiency measures plus quality, safety, trust, accessibility, and rollback guardrails |
+
+## The design philosophy
+
+1. **Outcome before feature** — start with what the person needs to make true.
+2. **Remove before automate** — delete, simplify, combine, and reuse before adding AI.
+3. **Evidence before confidence** — label what is known and what is still a hypothesis.
+4. **Minimum sufficient autonomy** — give the system no more initiative or permission than the outcome requires.
+5. **Recovery is part of the product** — design how people inspect, correct, stop, undo, and continue.
+
+When two solutions work equally well, the skill prefers the one with fewer screens, roles, agents, integrations, data sources, permissions, handoffs, and operating burdens.
+
+## Choose the depth you need
+
+- **Step-by-step guidance:** best for a rough idea or an unfamiliar domain.
+- **Quick review:** a compact judgment on the goal, evidence, friction, direction, risk, and next test.
+- **Full blueprint:** an end-to-end package for product, design, engineering, data, research, risk, and operations.
+- **Focused review:** only autonomy, evaluation, interaction, implementation, evidence, or another requested section.
+
+The rigor stays the same; only the pacing, terminology, and amount of detail change.
+
+## Useful prompts
+
+```text
+Review this flow and tell me what should be removed before we add AI.
+```
+
+```text
+Rethink this product from the user's real goal, but keep the solution as simple as possible.
+```
+
+```text
+Decide what people should control and what AI may safely prepare or execute.
+```
+
+```text
+Build the smallest test that can show whether this actually saves time.
+```
+
+```text
+Turn this PRD into an implementation-ready AI product blueprint. Keep assumptions explicit.
+```
+
+## How the method works
+
+```text
+Goal → Evidence → Current reality → Root friction → Responsibility →
+Target system → First build → Evaluation → Pilot and learning
+                         ↖──── learn and simplify ────↙
+```
+
+The method uses three sets of shorthand in formal work, but explains them before use:
+
+- **Evidence strength (E0–E4):** from something merely stated to something tested.
+- **Degree of change (R1–R4):** from improving today's flow to safe ongoing delegation.
+- **Decision readiness (G1–G5):** from a coherent direction to a real-world pilot that is ready to run.
+
+You do not need to learn these codes to use the skill.
 
 ## Install
 
@@ -51,59 +112,11 @@ git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.g
   "${CODEX_HOME:-$HOME/.codex}/skills/ai-native-interaction-design-reviewer"
 ```
 
-If the destination already exists, update it from the repository instead of cloning over it. Keep the folder structure unchanged so the reference links continue to work.
+If the destination already exists, update that repository instead of cloning over it. Keep the folder structure unchanged so the reference links continue to work.
 
-## Use
+## What a full blueprint can include
 
-Invoke the skill by name:
-
-```text
-Use $ai-native-interaction-design-reviewer to help me turn this rough idea into
-an AI-native system. I have no product design experience.
-```
-
-The skill follows the language used in the request.
-
-### Beginner examples
-
-```text
-Use $ai-native-interaction-design-reviewer in Beginner mode. Our team spends
-too long making weekly reports and I think AI might help. I don't have metrics.
-```
-
-```text
-Use $ai-native-interaction-design-reviewer. I have an idea but don't know where
-to start: help parents understand messages from their child's school.
-```
-
-The skill asks only a few plain-language questions at a time, translates the answers into professional artifacts, and shows what has been completed and what comes next.
-
-### Standard and expert examples
-
-```text
-Use $ai-native-interaction-design-reviewer to review this workflow and compare
-a practical next release with an AI-native North Star.
-```
-
-```text
-Use $ai-native-interaction-design-reviewer in Expert mode. Build an
-implementation-ready blueprint from this PRD, research report, event taxonomy,
-and architecture. Preserve evidence IDs and identify unresolved gate conditions.
-```
-
-### Focused commands
-
-- `Review this flow`
-- `Improve this flow without fundamentally changing it`
-- `Redesign who does what across people and AI`
-- `Rethink this from the user's real goal`
-- `Turn this recurring work into safe ongoing delegation`
-- `Prove whether this actually saves time`
-- `Create the evaluation kit`
-- `Review autonomy and guardrails`
-- `Beginner mode`, `Standard mode`, or `Expert mode`
-
-## Full delivery package
+Only the modules needed for the decision, handoff, or risk are produced:
 
 1. Decision Brief
 2. Evidence & Baseline Pack
@@ -112,8 +125,6 @@ and architecture. Preserve evidence IDs and identify unresolved gate conditions.
 5. System Implementation Blueprint
 6. Delivery Roadmap
 7. Evaluation Kit
-
-The main decision is kept concise; detailed evidence, specifications, and test materials live in modular appendices.
 
 ## Package structure
 
@@ -134,7 +145,7 @@ ai-native-interaction-design-reviewer/
     └── examples.md
 ```
 
-`SKILL.md` is the concise orchestration layer. References are loaded only when the task needs their detail.
+`SKILL.md` is the concise orchestration layer. Detailed references are loaded only when the task needs them.
 
 ## Method foundations
 
