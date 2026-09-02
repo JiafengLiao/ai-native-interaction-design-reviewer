@@ -1,17 +1,108 @@
 # AI-Native Interaction Design Reviewer
 
-An installable Skill for reviewing and redesigning product interactions across four levels of ambition: R1 Optimize, R2 Recompose, R3 AI-Native, and R4 Agent-Native.
+An installable Codex skill that helps anyone—from a first-time builder to an experienced product team—turn a rough idea, existing workflow, PRD, screenshot, or prototype into an evidence-backed, user-friendly, implementation-ready AI-native system.
 
-The default is **Dual-track**: a practical R1/R2 redesign for the next iteration plus an R3/R4 North Star unconstrained by the current workflow.
+The skill does more than review screens. It guides the work from user goal and baseline through workflow redesign, human/AI responsibility, interaction states, system requirements, evaluation, and pilot planning.
 
-## What it reviews
+## What makes it different
 
-- Whether the flow starts from the user's goal or from software operations
-- Whether AI uses available context instead of making users transport it
-- Whether responsibilities are assigned appropriately across user, AI, system, and tools
-- Whether confirmation, control, visibility, trust, and recovery match the action risk
-- Whether the design is truly AI-native rather than traditional software with an AI surface
-- Whether recurring work should become persistent, policy-bound agent delegation
+- **Works at any experience level:** automatically adapts to Beginner, Standard, or Expert mode without lowering the final quality bar.
+- **Does not require existing analytics:** starts with a lightweight task walkthrough and clearly labels unproven benefits.
+- **Supports existing flows and 0-to-1 products:** compares against the current workflow, workaround, substitute, or analogue.
+- **Separates design quality from evidence:** no false-precision maturity total or unsupported ROI claim.
+- **Produces a buildable package:** includes interaction, AI capability, data, tool, permission, failure, operations, delivery, and measurement specifications.
+- **Balances efficiency with human outcomes:** speed must improve without unacceptable regressions in quality, safety, control, recovery, trust, or accessibility.
+- **Treats “no AI” as valid:** recommends deterministic software or process change when AI is not justified.
+
+## Method
+
+The skill uses a stage-gated loop:
+
+```text
+Goal → Evidence → Baseline → Diagnosis → Responsibility →
+System Design → Implementation Blueprint → Evaluation → Pilot & Learning
+                         ↖──────── evidence-driven return ────────↙
+```
+
+Evidence is tracked from E0 (stated) through E4 (tested). Missing metrics do not stop the work, but E0/E1 evidence cannot be presented as proven efficiency.
+
+The default design view is Dual-track:
+
+- **Practical:** an implementable R1/R2 next iteration.
+- **AI-Native North Star:** an R3 redesign of the operating model, with R4 persistent delegation only when useful and safe.
+
+## Install
+
+Clone the repository into the skills directory used by Codex:
+
+```bash
+git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.git \
+  "${CODEX_HOME:-$HOME/.codex}/skills/ai-native-interaction-design-reviewer"
+```
+
+If the destination already exists, update it from the repository instead of cloning over it. Keep the folder structure unchanged so the reference links continue to work.
+
+## Use
+
+Invoke the skill by name:
+
+```text
+Use $ai-native-interaction-design-reviewer to help me turn this rough idea into
+an AI-native system. I have no product design experience.
+```
+
+The skill follows the language used in the request.
+
+### Beginner examples
+
+```text
+Use $ai-native-interaction-design-reviewer in Beginner mode. Our team spends
+too long making weekly reports and I think AI might help. I don't have metrics.
+```
+
+```text
+Use $ai-native-interaction-design-reviewer. I have an idea but don't know where
+to start: help parents understand messages from their child's school.
+```
+
+The skill asks only a few plain-language questions at a time, translates the answers into professional artifacts, and shows what has been completed and what comes next.
+
+### Standard and expert examples
+
+```text
+Use $ai-native-interaction-design-reviewer to review this workflow and compare
+a practical next release with an AI-native North Star.
+```
+
+```text
+Use $ai-native-interaction-design-reviewer in Expert mode. Build an
+implementation-ready blueprint from this PRD, research report, event taxonomy,
+and architecture. Preserve evidence IDs and identify unresolved gate conditions.
+```
+
+### Focused commands
+
+- `Review this flow`
+- `Optimize this flow` — R1
+- `Recompose this workflow` — R2
+- `Make this AI-native` — R3
+- `Make this agent-native` — R4
+- `Prove whether this actually saves time`
+- `Create the evaluation kit`
+- `Review autonomy and guardrails`
+- `Beginner mode`, `Standard mode`, or `Expert mode`
+
+## Full delivery package
+
+1. Decision Brief
+2. Evidence & Baseline Pack
+3. Target Experience Blueprint
+4. Interaction & Autonomy Specification
+5. System Implementation Blueprint
+6. Delivery Roadmap
+7. Evaluation Kit
+
+The main decision is kept concise; detailed evidence, specifications, and test materials live in modular appendices.
 
 ## Package structure
 
@@ -22,106 +113,29 @@ ai-native-interaction-design-reviewer/
 ├── agents/
 │   └── openai.yaml
 └── references/
+    ├── adaptive-guidance.md
     ├── review-framework.md
+    ├── evidence-and-evaluation.md
+    ├── implementation-blueprint.md
+    ├── method-foundations.md
     ├── ai-native-smells.md
     ├── autonomy-framework.md
     └── examples.md
 ```
 
-`SKILL.md` contains the concise operating instructions. The reference files hold the detailed framework, diagnostic patterns, autonomy guidance, and worked examples. `agents/openai.yaml` provides optional UI metadata for compatible Codex environments.
+`SKILL.md` is the concise orchestration layer. References are loaded only when the task needs their detail.
 
-## Install
+## Method foundations
 
-Use the ZIP bundle where skill ZIP uploads are supported, or extract it and add the complete `ai-native-interaction-design-reviewer` folder to the skills directory used by your agent environment. Keep the folder structure unchanged so the relative reference links continue to work.
+The skill operationalizes stable principles from:
 
-For API-based skill management, OpenAI's Skills API accepts either a directory upload or a single ZIP file. Product availability and UI installation steps can vary by account or workspace, so follow the skill-management surface available in your environment.
+- [Microsoft Guidelines for Human-AI Interaction](https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/)
+- [Google People + AI Guidebook](https://pair.withgoogle.com/guidebook-v2/chapters)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [ISO 9241-11 usability concepts](https://www.iso.org/standard/63500.html)
 
-## Invoke
+These sources support the method. Project-specific claims still require project-specific evidence.
 
-Use the skill by name:
+## Core principle
 
-```text
-Use $ai-native-interaction-design-reviewer to review this flow.
-```
-
-You can provide a screenshot, prototype, Figma flow, PRD, feature description, user journey, or plain task chain.
-
-## Starter commands
-
-```text
-Review this flow
-```
-
-Runs the default Dual-track review.
-
-```text
-Optimize this flow
-```
-
-Uses R1 and preserves the current product model.
-
-```text
-Recompose this workflow
-```
-
-Uses R2 and redesigns the human/AI division of labor.
-
-```text
-Make this AI-native
-```
-
-Uses R3 and redesigns from the user's underlying goal.
-
-```text
-Make this agent-native
-```
-
-Uses R4 and explores persistent goals, monitoring, policies, and exception handling.
-
-```text
-Compare practical vs North Star
-```
-
-Compares a realistic R2 direction with an R3/R4 North Star.
-
-```text
-Review autonomy and guardrails
-```
-
-Focuses on execution boundaries, confirmation, undo, provenance, permissions, and recovery.
-
-```text
-Run a quick AI-native review
-```
-
-Returns a compressed review.
-
-## Example input
-
-```text
-Use $ai-native-interaction-design-reviewer in Dual-track mode.
-
-Current flow:
-Select a customer in the CRM → click “Write follow-up” → enter a prompt →
-generate an email → copy it → open Gmail → paste → send.
-
-Constraint: The next release cannot replace the CRM or email provider.
-```
-
-## Expected full-review output
-
-1. Review Setup
-2. Goal Definition
-3. Current Flow
-4. Friction Map
-5. AI Opportunity Map
-6. Target Flow
-7. Interaction Specification
-8. Autonomy & Guardrail Matrix
-9. Design Decision Summary
-
-## Design principle
-
-> User-goal-first, AI-enabled, human-controlled.
-
-The North Star must change the operating model—not merely add a prompt box, chat panel, or AI button.
+> User-goal-first, evidence-led, AI-enabled, human-controlled, measurably better.

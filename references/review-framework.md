@@ -1,313 +1,230 @@
-# Review Framework
+# End-to-End Review and Design Framework
 
-Use this reference for a full or deep interaction review. Tailor the depth to the evidence available; do not fabricate research findings or technical capabilities.
+Use this reference for a full review, guided design, or implementation-ready blueprint. Tailor the pacing to the user and the depth to the evidence. Do not fabricate research, metrics, capabilities, or feasibility.
 
 ## Table of contents
 
-1. Review setup
-2. Goal definition
-3. Current flow reconstruction
-4. Friction map
-5. AI opportunity map
-6. Target flow
-7. Interaction specification
-8. Evaluation dimensions and scoring
-9. Design decision summary
+1. Stage 1 — Understand the goal
+2. Stage 2 — Establish evidence
+3. Stage 3 — Reconstruct the baseline
+4. Stage 4 — Diagnose the workflow
+5. Stage 5 — Reallocate responsibility
+6. Stage 6 — Design the system
+7. Stage 7 — Build the implementation blueprint
+8. Stage 8 — Define evaluation
+9. Stage 9 — Plan pilot and learning
+10. Stage gates and final decisions
 
-## 1. Review setup
+## 1. Stage 1 — Understand the goal
 
-State the frame before critiquing screens.
+Do not describe a screen action as the goal.
 
-### Required fields
+Capture:
 
-- **Refactor Ambition:** R1, R2, R3, R4, or Dual-track
-- **Design Constraints:** technical, regulatory, organizational, timeline, platform, data, or adoption limits
-- **Allowed Changes:** what can change now
-- **North Star:** what can change in the unconstrained direction
-- **Assumptions:** only material assumptions
-- **Frequency:** one-off, frequent, recurring, or continuous
-- **Risk:** low, medium, or high, with the reason
-- **Current Autonomy:** L0–L5
+- **Primary user or actor:** who experiences the need and who is affected
+- **Trigger:** the event that creates the need
+- **Underlying goal:** the outcome the person cares about
+- **Desired result:** the observable end state
+- **Success conditions:** what must be true, not a metric target yet
+- **Frequency:** one-off, occasional, frequent, recurring, or continuous
+- **Consequences:** what happens when the result is late, wrong, missing, or unauthorized
+- **Constraints and non-goals:** what may not change now and what is intentionally excluded
 
-If the user gives no ambition, use Dual-track. If constraints are unclear, infer a plausible practical boundary and label it.
+For 0-to-1 work, identify the current substitute, workaround, avoidance, or unmet behavior. Test whether AI has a distinctive advantage over deterministic software, process change, content, or service design.
 
-## 2. Goal definition
+### Value hypothesis
 
-Do not describe a UI action as the goal.
-
-### Template
-
-- **Primary User Goal:** one sentence describing the outcome the user cares about
-- **Trigger:** the situation that creates the need
-- **Desired Outcome:** the state the user wants to reach
-- **Success Criteria:** observable signals of completion or quality
-- **Frequency:** one-off, frequent, recurring, or continuous
-- **Risk Drivers:** external action, money, communication, deletion, publication, privacy, business impact, or another domain-specific concern
-
-Bad:
-
-> The user wants to click Generate to create an email.
-
-Better:
-
-> The user wants to follow up with important customers at the right time with an accurate, relationship-aware message.
-
-## 3. Current flow reconstruction
-
-Compress the current workflow into the smallest meaningful task chain.
-
-### Flow format
+Write:
 
 ```text
-Trigger → Step → Step → Decision → Action → Outcome
+For [user/context], when [trigger], the system helps achieve [outcome]
+by [change in responsibility or capability], expected to improve [benefit]
+without worsening [guardrails]. Current evidence: [claim IDs and level].
 ```
 
-### Actor annotation
+Pass G1 only when the user, goal, value mechanism, risk, and non-goals are coherent enough to guide evidence collection.
 
-Label each step as:
+## 2. Stage 2 — Establish evidence
 
-- User
-- AI
-- Product/System
-- External Tool
+Create an Evidence Ledger using [evidence-and-evaluation.md](evidence-and-evaluation.md). Separate:
 
-### Action type
+- What has been directly observed or measured
+- What stakeholders or users report
+- What is inferred from artifacts or behavior
+- What is assumed so work can continue
+- What is a desired target
+- What remains materially unknown
 
-Use when it clarifies burden:
+Link every major friction, design choice, expected benefit, and risk to claim IDs. Record contradictions and limitations.
 
-- Think
-- Search
-- Input
-- Configure
-- Decide
-- Confirm
-- Execute
-- Wait
-- Review
-- Recover
+Choose the next evidence action by decision value, not by research completeness: ask which unknown could most plausibly reverse the direction or make it unsafe.
 
-### User burden
+## 3. Stage 3 — Reconstruct the baseline
 
-Count or estimate:
+Compress the current, substitute, or analogous workflow:
 
-- User inputs
-- Explicit decisions
-- App or surface switches
-- Confirmations
-- Repeated context entry
-- Manual execution steps
-- Wait states
-- Recovery restarts
+```text
+Trigger → Step → Decision → Handoff/Wait → Commitment → Outcome → Recovery
+```
 
-Do not treat every click equally. Emphasize cognitive, coordination, commitment, and recovery costs.
+For each step record:
 
-## 4. Friction map
+| Step | Actor | Action type | Input/context | Decision | Tool/handoff | Time/wait | Failure/rework | Evidence |
+|---|---|---|---|---|---|---|---|---|
 
-Prioritize 3–7 issues. Diagnose workflow before aesthetics.
+Use actor labels such as User, AI, Product/System, External Tool, and Human Operations. Use action types such as Think, Search, Input, Configure, Decide, Confirm, Execute, Wait, Review, Verify, and Recover.
 
-### Friction categories
+Do not treat every click equally. Emphasize:
 
-#### Cognitive load
+- Cognitive work and judgment
+- Context finding and transport
+- Coordination and handoffs
+- Explicit decisions and commitment
+- Active time and elapsed waiting
+- Quality checks and correction
+- Failure, lost work, and restart cost
 
-The user must understand internal structure, select complex parameters, design a solution, decompose the task, or write a sophisticated prompt.
+When analytics are missing, run the lightweight baseline sprint. Pass G2 when the baseline is sufficient to choose the riskiest test—not when every metric exists. Keep benefit claims hypothetical until evidence supports them.
 
-#### Context burden
+## 4. Stage 4 — Diagnose the workflow
 
-The user must copy, paste, upload, re-explain, or manually identify information the system could already know or retrieve with permission.
+Prioritize 3–7 structural frictions. Use [ai-native-smells.md](ai-native-smells.md) for recurring patterns.
 
-#### Coordination burden
+For each friction provide:
 
-The user must sequence work, manage dependencies, move between tools, or act as the router between systems.
+- Location and affected user or actor
+- Concrete problem and evidence claim IDs
+- User, quality, coordination, or recovery cost
+- Root responsibility or capability mismatch
+- Severity and frequency confidence
+- Design implication
+- What evidence would change the judgment
 
-#### Execution burden
+Cover cognitive, context, coordination, execution, waiting, confirmation, visibility, handoff, recovery, continuity, and accessibility costs when relevant.
 
-The system knows the intended next action but still makes the user transfer, apply, submit, publish, or repeat it manually.
+Do not diagnose “lack of AI” as a friction. Diagnose unmet outcomes and burdens first.
 
-#### Confirmation cost
+## 5. Stage 5 — Reallocate responsibility
 
-The design asks for approval on low-risk, reversible, or obvious actions, creating confirmation fatigue.
+For every meaningful step, ask whether a person actually needs to do it.
 
-#### Visibility gap
+| Current step | Current owner | Proposed role | Required context/capability | User role | Risk | Evidence dependency |
+|---|---|---|---|---|---|---|
 
-The user cannot distinguish understanding, planning, acting, waiting, reviewing, and completion—or suggestion, draft, prepared action, and committed action.
+Use these proposed roles:
 
-#### Recovery cost
-
-Failure destroys progress, requires a full restart, hides partial completion, or makes correction harder than regeneration.
-
-#### Dead end
-
-AI produces an output but offers only copy, close, or regenerate instead of edit, compare, apply, continue, execute, or automate.
-
-#### Continuity gap
-
-Recurring work resets to zero. The system does not remember bounded preferences, monitor relevant changes, or carry a goal forward.
-
-### Issue template
-
-For each issue, provide:
-
-- **Location**
-- **Problem**
-- **User Cost**
-- **Why It Is Not AI-Native**
-- **Severity:** High, Medium, or Low
-- **Design Implication:** the responsibility or interaction change required
-
-Use [ai-native-smells.md](ai-native-smells.md) to name recurring anti-patterns.
-
-## 5. AI opportunity map
-
-For each meaningful step, ask: **Does the user actually need to do this?**
-
-### AI roles
-
-- **Keep manual:** preserve user responsibility
-- **Infer:** derive information from available context
-- **Suggest:** recommend a next step or option
+- **Keep manual:** preserve human responsibility
+- **Infer:** derive information from authorized context
+- **Suggest:** recommend an option or next step
 - **Prefill:** prepare likely structured inputs
-- **Generate:** create content, options, or a draft
+- **Generate:** create content or alternatives
 - **Prepare:** stage a concrete action without committing it
 - **Execute:** perform an authorized action
 - **Monitor:** watch for a condition over time
-- **Escalate:** involve the user when risk, ambiguity, policy, or exception requires judgment
+- **Escalate:** involve a person for ambiguity, policy, risk, or exception
 
-### Opportunity table
+Summarize work to Remove, Automate, Preserve, and Add. Name the required context, integrations, policies, memory, operations, and evaluation.
 
-| Current Step | Current Owner | Proposed AI Role | Required Context or Capability | User Role | Risk |
-|---|---|---|---|---|---|
-| Example | User | Prepare | Customer history + email tool | Review draft | Medium |
+Apply [autonomy-framework.md](autonomy-framework.md) action by action. One workflow may contain multiple autonomy levels.
 
-Then summarize:
+## 6. Stage 6 — Design the system
 
-- **Steps to Remove**
-- **Steps to Automate**
-- **Steps to Preserve**
-- **New Capabilities Required:** context, integrations, permissions, memory, policies, evaluation, or monitoring
+Honor an explicit R1–R4 ambition. Otherwise create two tracks:
 
-Keep judgment-heavy choices with the user when values, accountability, or ambiguous tradeoffs dominate. Automate mechanical coordination when the context and authority are clear.
+### Practical track
 
-## 6. Target flow
-
-This is the central output. Replace the current chain with a coherent operating model.
-
-### Practical target
-
-Use R1/R2. Respect near-term constraints. Show a complete path from trigger to outcome.
-
-```text
-Trigger → Context acquired → AI suggestion/preparation → User steering or approval →
-Bounded action → Result → Next action or recovery
-```
+Use R1/R2. Respect near-term technical, regulatory, operational, platform, and adoption constraints. Deliver a complete path from trigger to verified outcome and recovery.
 
 ### AI-Native North Star
 
-Use R3 and add R4 only when persistence is useful and safe.
+Use R3 and add R4 only when persistent delegation is valuable and supportable. Change the operating model rather than decorating the current flow.
 
-```text
-Goal and boundaries → Context interpretation → Plan or preview → User correction →
-AI action → Visible result → Continuous improvement, monitoring, or escalation
-```
+Compare:
 
-### Required annotations
-
-- Owner of each step
-- Where the user participates and why
-- Steps removed
-- Steps automated
-- Steps newly added
-- Context and permissions required
-- Estimated user-effort reduction, stated as directional when precise data is unavailable
-- Failure and correction path
-
-### Dual-track comparison
-
-| Dimension | Current | Practical | AI-Native North Star |
+| Dimension | Current/Analogue | Practical | North Star |
 |---|---|---|---|
-| User input |  |  |  |
-| Context handling |  |  |  |
-| AI responsibility |  |  |  |
-| Confirmation |  |  |  |
+| Intent expression |  |  |  |
+| Context acquisition |  |  |  |
+| User work |  |  |  |
+| AI/system work |  |  |  |
+| Human operations |  |  |  |
+| Confirmation/commitment |  |  |  |
 | Recovery |  |  |  |
 | Continuity |  |  |  |
+| Expected benefit and evidence |  |  |  |
 
-The North Star must alter at least one paradigm dimension: interaction, responsibility, context, execution, confirmation, recovery, or continuity.
+For each track show actor ownership, removed and new work, required capabilities, user checkpoints, failure path, and evidence gaps. Reject the North Star when the added complexity, cost, risk, or loss of control is not justified.
 
-## 7. Interaction specification
+## 7. Stage 7 — Build the implementation blueprint
 
-Specify the critical moments, not every pixel.
+Use [implementation-blueprint.md](implementation-blueprint.md) to produce:
 
-### Template
+- Target Experience Blueprint
+- Critical interaction and state specification
+- Action-level autonomy and guardrails
+- AI capability contracts
+- Context, data, tools, and permission maps
+- Failure and human-operations design
+- Instrumentation requirements
+- Testable vertical delivery slices
 
-| Moment | Pattern | User Sees | AI Does | User Can Do | State/Recovery |
-|---|---|---|---|---|---|
-| Draft review | Editable preview + diff | Proposed content and sources | Generates and highlights changes | Edit, accept part, reject, refine | Preserve edits on retry |
+Do not call a design build-ready when it omits dependencies, failure paths, evaluation, or hidden manual work.
 
-### Candidate patterns
+Pass G3 when the operating model is coherent. Pass G4 only when the first delivery slice can be implemented and evaluated without material product decisions left to the implementer.
 
-- Intent-first input
-- Contextual suggestion
-- Structured natural-language input
-- Smart defaults and prefill
-- Editable AI preview
-- Inline edit or direct manipulation
-- Suggest → Apply
-- Plan → Execute
-- Diff or compare
-- Partial approval
-- Agent activity panel
-- Permission and scope control
-- Progressive disclosure
-- Exception inbox
-- Reversible automation
-- Human-on-the-loop monitoring
+## 8. Stage 8 — Define evaluation
 
-### State model
+Use [evidence-and-evaluation.md](evidence-and-evaluation.md) to create:
 
-Use meaningful states such as:
+- Metric tree linked to the user outcome
+- Primary efficiency measure
+- Outcome/quality, safety, control/recovery, accessibility, and cost guardrails
+- Baseline source and current evidence level
+- Test tasks and realistic failure scenarios
+- Observation sheet and interview guide
+- Event instrumentation and privacy constraints
+- Precommitted continue, revise, pause, and rollback thresholds
 
-```text
-Understanding → Preparing → Awaiting input → Acting → Verifying → Done
-```
+Assess design readiness separately from evidence confidence and measured outcome. Never use one total score.
 
-Show action-relevant summaries and progress. Do not expose private chain-of-thought.
+## 9. Stage 9 — Plan pilot and learning
 
-## 8. Evaluation dimensions and scoring
+Choose the smallest reversible exposure that tests the riskiest system assumption.
 
-Score current and target from 1–5 on each dimension. Explain the evidence briefly.
+Specify:
 
-| Dimension | Review question |
+- Cohort, case scope, and excluded cases
+- Current comparison or control condition
+- Model, prompt, tool, policy, and interface version
+- Training, onboarding, support, and manual fallback
+- Live monitoring and review cadence
+- Escalation and incident owners
+- Stop and rollback triggers
+- Decision date and evidence review
+- How accepted findings change the next slice
+
+Do not progress from prepared actions to standing autonomy merely because a prototype is appealing. Require representative outcomes, bounded policies, reliable permissions, monitoring, and recovery.
+
+## 10. Stage gates and final decisions
+
+Use `Pass`, `Conditional`, or `Fail` for each gate:
+
+| Gate | Decision question |
 |---|---|
-| Intent-first | Can users express the outcome instead of translating it into system operations? |
-| Context awareness | Does AI use authorized existing context without unnecessary transport or repetition? |
-| AI initiative | Does the system proactively infer, prepare, execute, or monitor where appropriate? |
-| Visibility | Can users understand status, scope, inputs, and whether anything was committed? |
-| User control | Can users steer, edit, stop, partially apply, approve, or undo? |
-| Recovery | Can the flow preserve progress, explain failure, accept correction, and resume? |
-| Trust | Are sources, assumptions, permissions, uncertainty, and impact appropriately visible? |
-| Iteration | Can users refine, compare, continue, reuse context, and improve the goal over time? |
+| G1 Direction | Is the problem and value mechanism worth investigating? |
+| G2 Evidence | Is there enough baseline evidence to choose and interpret the next test? |
+| G3 Solution integrity | Does the proposed system form a coherent, controllable operating model? |
+| G4 Build readiness | Can a team implement the first slice without unresolved material decisions? |
+| G5 Pilot readiness | Are thresholds, guardrails, monitoring, ownership, and rollback ready? |
 
-### Interpretation
+End a full engagement with:
 
-- **8–16:** Traditional UX with an AI feature
-- **17–24:** AI-assisted
-- **25–32:** AI-native
-- **33–40:** Agent-native
+- Recommendation and current gate
+- Evidence level and most important unknown
+- Practical and North Star decisions
+- Largest expected gain and largest risk
+- First vertical slice
+- Evaluation and pilot decision rule
+- Named next action and owner
 
-Treat bands as diagnostic shorthand, not targets. High-risk products may intentionally keep autonomy low while scoring well on control, trust, and recovery.
-
-## 9. Design decision summary
-
-End with:
-
-- **Current Score:** `/40`
-- **Target Score:** `/40`
-- **Autonomy Shift:** current L0–L5 → recommended L0–L5
-- **Top Three Design Changes**
-- **Biggest UX Gain**
-- **Biggest Risk**
-- **Recommended Next Prototype**
-- **What to Test With Users**
-- **Feasibility Dependencies:** data, integration, permissions, model quality, evaluation, or operations
-
-Prefer one decisive prototype that tests the riskiest assumption over a broad list of disconnected improvements.
+For guided work, expose only the current decision and next step while retaining the complete artifact structure internally.

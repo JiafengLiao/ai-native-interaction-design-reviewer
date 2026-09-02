@@ -18,6 +18,8 @@ Use these smells to diagnose structural problems. A smell is evidence to investi
 12. One-Off Agent
 13. Autonomy Theater
 14. Invisible Commitment Boundary
+15. Metricless ROI
+16. Expertise Gatekeeping
 
 ## 1. Prompt Box Everywhere
 
@@ -130,6 +132,22 @@ Use these smells to diagnose structural problems. A smell is evidence to investi
 **Why it fails:** Users cannot tell when an action becomes externally consequential or irreversible.
 
 **Better direction:** Visually and behaviorally distinguish suggestion, draft, prepared action, execution, and committed action. Place confirmation at the transition that matters.
+
+## 15. Metricless ROI
+
+**Signal:** A design claims that AI will save time, reduce work, or improve quality without a baseline, metric definition, evidence level, or test.
+
+**Why it fails:** A plausible mechanism is presented as a proven result. Hidden review, correction, tool, model, and recovery costs are omitted.
+
+**Better direction:** Label the benefit as a hypothesis, reconstruct the minimum current or analogue baseline, choose one primary efficiency metric plus quality and control guardrails, and predefine the test decision.
+
+## 16. Expertise Gatekeeping
+
+**Signal:** The process requires users to supply personas, journey maps, autonomy levels, experiment designs, or technical architecture before it offers useful help.
+
+**Why it fails:** The method transfers professional translation work to the user and excludes people who know the problem but not the vocabulary.
+
+**Better direction:** Ask about concrete recent behavior in plain language, translate answers into professional artifacts, support “I don't know,” and adapt explanation depth without lowering the final quality bar.
 
 ## Diagnostic format
 

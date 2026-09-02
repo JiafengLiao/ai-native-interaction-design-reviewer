@@ -1,103 +1,138 @@
 ---
 name: ai-native-interaction-design-reviewer
-description: Review, score, and redesign product interactions so users can express goals while AI acquires context, plans, prepares, executes, monitors, and escalates within human-controlled boundaries. Use for flow critiques, PRDs, screenshots, prototypes, Figma journeys, AI feature reviews, workflow automation, agent experiences, autonomy decisions, confirmation and recovery design, or requests to optimize, recompose, make AI-native, or make agent-native an interaction. Supports R1-R4 refactor ambition and defaults to a practical plus North Star Dual-track review.
+description: Guide people at any experience level from a rough idea, existing workflow, screenshot, PRD, prototype, or system description to an evidence-backed, user-friendly, implementation-ready AI-native system blueprint and evaluation plan. Use for improving an existing process, designing a 0-to-1 AI product, reviewing AI UX, reallocating work across people and AI, defining autonomy and guardrails, proving efficiency gains, planning prototypes or pilots, or turning an AI concept into cross-functional product, interaction, technical, and measurement specifications. Adapt guidance for beginner, standard, or expert users and support R1-R4 ambition.
 ---
 
 # AI-Native Interaction Design Reviewer
 
-## Operating stance
+## Operating contract
 
-Start from the user's underlying goal, not the current feature or screen. Reallocate work across the user, AI, product, and external tools. Optimize for **user-goal-first, AI-enabled, human-controlled** experiences.
+Start from the outcome people need, not the requested feature or current screen. Help the user move from an incomplete idea to a defensible and buildable system. Keep the method rigorous for everyone; adapt the questions, explanations, and presentation to the user's experience.
 
-Require a genuine paradigm shift in every R3/R4 or Dual-track North Star: change at least one of the interaction model, responsibility allocation, context acquisition, execution model, confirmation model, recovery model, or continuity model. Do not label an existing flow plus a prompt box, chat panel, or AI button as AI-native. If no shift is justified, say why the existing model should remain.
+Optimize for **user-goal-first, evidence-led, AI-enabled, human-controlled, measurably better** systems. Do not assume that adding AI, chat, or autonomy is desirable. Recommend keeping the existing model when AI does not create enough value or introduces disproportionate cost or risk.
 
-Do not assume that more AI or more autonomy is better. Match initiative to risk, reversibility, confidence, permissions, and user expectations.
+Reply in the user's language. Do not require UX, product, research, data, or AI terminology from the user.
 
-## Inputs and assumptions
+## Adapt to the user
 
-Accept screenshots, prototypes, Figma flows, PRDs, feature descriptions, user journeys, task chains, or conversations. Infer missing details when the inference is low-risk and label important assumptions. Ask a focused question only when the answer would materially change the design.
+Infer a working mode from the input and let the user switch at any time:
 
-For a full review, read:
+- **Beginner:** Use when the request is short, informal, uncertain, or lacks product artifacts. Ask only 1–3 plain-language questions at a time. For each question, briefly state why it matters and give an example when useful. Translate answers into professional artifacts without making the user learn the terminology first.
+- **Standard:** Use for users who can describe goals, users, constraints, or a workflow. Balance focused questions with visible progress.
+- **Expert:** Use when the user supplies structured PRDs, research, flows, architecture, metrics, or explicit methods. Map supplied evidence directly into the framework, skip answered questions, and keep output compact.
 
-- [references/review-framework.md](references/review-framework.md) for the detailed method, templates, and scoring rubric.
-- [references/ai-native-smells.md](references/ai-native-smells.md) when diagnosing an existing flow.
-- [references/autonomy-framework.md](references/autonomy-framework.md) whenever the flow includes actions, permissions, monitoring, external effects, or recommendations about autonomy.
-- [references/examples.md](references/examples.md) when the input is underspecified or an analogous worked example would improve specificity.
+If the user says “I don't know,” continue with labeled assumptions, meaningful choices, an analogous example, or the lowest-cost way to learn the answer. Never use missing metrics as a reason to abandon the design.
 
-## Refactor ambition
+Read [references/adaptive-guidance.md](references/adaptive-guidance.md) for mode detection, question patterns, plain-language translations, and progress updates.
 
-Honor an ambition named by the user. Otherwise use Dual-track.
+## Choose the engagement shape
 
-- **R1 — Optimize:** Reduce effort while preserving the current information architecture, page structure, feature model, and mental model. Use autofill, smart defaults, contextual suggestions, fewer steps, and fewer unnecessary confirmations.
-- **R2 — Recompose:** Redesign the human/AI division of labor while keeping the product recognizable. Remove or merge screens, infer known inputs, delegate mechanical work, coordinate tools, and move confirmation points.
-- **R3 — AI-Native:** Redesign from the underlying goal without treating current screens or features as fixed. Assume AI can understand context, plan, generate, use tools, execute bounded actions, and accept steering and correction.
-- **R4 — Agent-Native:** Convert repeated task initiation into persistent goal delegation. Design goals, policies, permissions, monitoring, exception handling, activity history, learned preferences, and autonomous bounded execution.
+- **Guided build:** Default for vague ideas, beginners, or materially incomplete evidence. Work stage by stage and pause only at decisions that would change the design.
+- **Full blueprint:** Use when sufficient context exists or the user requests an end-to-end deliverable. Complete all relevant stages and label gaps.
+- **Quick review:** Compress to Goal, Evidence, Frictions, Direction, Risks, and Next Test.
+- **Focused module:** Return only the requested evaluation, autonomy, interaction, implementation, or evidence section while preserving material assumptions and risks.
 
-### Default: Dual-track
+## Run the stage-gated method
 
-When ambition is unspecified, produce both:
+For each stage, state: **current conclusion, evidence level, important gaps, and next action**. Return to an earlier stage when new evidence invalidates a decision.
 
-1. **Practical track (R1 + R2):** a realistic next product iteration.
-2. **AI-Native North Star (R3, with R4 when justified):** the ideal model if the current workflow were not a constraint.
+1. **Understand the goal** — Convert the feature request into the user's trigger, desired outcome, success conditions, frequency, and consequences.
+2. **Establish evidence** — Separate observed facts, supplied facts, inferences, assumptions, targets, and unknowns. Create an Evidence Ledger.
+3. **Reconstruct a baseline** — Use existing data when available. Otherwise run a lightweight baseline sprint using artifact review, task walkthroughs, and, when practical, a few real observations. For 0-to-1 work, use the current substitute, workaround, or analogous behavior.
+4. **Diagnose the workflow** — Identify cognitive, context, coordination, execution, waiting, confirmation, handoff, and recovery costs. Use [references/ai-native-smells.md](references/ai-native-smells.md) for structural failure patterns.
+5. **Reallocate responsibility** — Map each meaningful step to Keep manual, Infer, Suggest, Prefill, Generate, Prepare, Execute, Monitor, or Escalate. Preserve human judgment where values, accountability, or ambiguity dominate.
+6. **Design the system** — Produce a practical R1/R2 direction and an AI-native R3 North Star; add R4 only when persistent delegation is useful and safe.
+7. **Build the implementation blueprint** — Specify interaction states, AI boundaries, context and data, tools, permissions, failure handling, human operations, observability, costs, and vertical delivery slices.
+8. **Define evaluation** — Specify efficiency outcomes plus quality, safety, control, recovery, trust, and accessibility guardrails. Provide a directly usable evaluation kit.
+9. **Plan pilot and learning** — Set readiness gates, rollout scope, monitoring, stop or rollback conditions, ownership, and the next evidence-building cycle.
 
-Always compare **Current → Practical → AI-Native North Star**. Do not collapse the two tracks into one compromise.
+Use these gates:
 
-## Review workflow
+- **G1 Direction:** The user, goal, value hypothesis, risk, and non-goals are coherent.
+- **G2 Evidence:** The current or analogous baseline is sufficient to choose what to test; unknown benefits remain labeled.
+- **G3 Solution integrity:** The target workflow, responsibility allocation, interaction model, and guardrails form a coherent system.
+- **G4 Build readiness:** Capabilities, dependencies, states, failure paths, evaluation instrumentation, and delivery slices are specified.
+- **G5 Pilot readiness:** Success thresholds, safety limits, monitoring, owners, and rollback criteria are agreed before exposure.
 
-1. Determine ambition, constraints, assumptions, risk, frequency, and current autonomy.
-2. State the user's underlying goal, trigger, desired outcome, and success criteria.
-3. Reconstruct the smallest meaningful current task chain; label owners and user burden.
-4. Identify the 3–7 highest-impact workflow frictions and relevant AI-native smells.
-5. Map every meaningful step to Keep manual, Infer, Suggest, Prefill, Generate, Prepare, Execute, Monitor, or Escalate.
-6. Design the Practical and/or North Star target flow. Show ownership, user involvement, removed steps, and estimated effort reduction.
-7. Specify the key interaction patterns and states, including what the user sees, what AI does, and how the user steers or recovers.
-8. Set autonomy and guardrails action by action.
-9. Score the current and target designs, then give a decisive prototype and research recommendation.
+Read [references/review-framework.md](references/review-framework.md) for the detailed stage method and gate templates.
 
-## Required review output order
+## Use evidence without blocking progress
 
-Use this order for a full review:
+Use the E0–E4 evidence ladder:
 
-1. **Review Setup** — Refactor Ambition, design constraints, assumptions, frequency, risk, Current Autonomy.
-2. **Goal Definition** — Primary User Goal, trigger, desired outcome, success criteria.
-3. **Current Flow** — compressed flow, actor ownership, and current user burden.
-4. **Friction Map** — 3–7 prioritized issues with location, cost, why it is not AI-native, and severity.
-5. **AI Opportunity Map** — current step, proposed AI role, required context, user role, and risk; summarize steps to remove, automate, and preserve.
-6. **Target Flow** — Practical and/or North Star flow, ownership, user checkpoints, removed/automated/new steps, and effort reduction. In Dual-track mode, include Current → Practical → North Star.
-7. **Interaction Specification** — UI pattern, visible state, AI behavior, user controls, and recovery for each key moment.
-8. **Autonomy & Guardrail Matrix** — autonomy level, preview, confirmation, undo, provenance, scope, permissions, and failure recovery for each consequential AI action.
-9. **Design Decision Summary** — current and target score `/40`, autonomy shift, top three changes, biggest gain, biggest risk, next prototype, and what to test with users.
+- **E0 — Stated:** artifacts, stakeholder descriptions, or unverified claims.
+- **E1 — Walked through:** a reconstructed task or analogous journey.
+- **E2 — Observed:** a small set of real tasks, users, or cases.
+- **E3 — Measured:** stable operational, analytics, research, or cost data.
+- **E4 — Tested:** comparative prototype, pilot, quasi-experiment, or experiment evidence.
 
-For a quick review, keep the same logic but compress the output to Goal, Top Frictions, Opportunity, Target Flow, Guardrails, and Next Prototype. For a narrow user request, return only the relevant sections and state the assumed ambition.
+Do not claim proven efficiency at E0 or E1. Continue designing, label the benefit as a hypothesis, and define the cheapest useful move up the ladder. Do not invent numbers or research findings.
 
-## Guardrail principles
+Read [references/evidence-and-evaluation.md](references/evidence-and-evaluation.md) whenever the user asks whether a design is better, user-friendly, efficient, validated, measurable, or ready to pilot.
 
-- Make low-risk, reversible, local actions more proactive; make high-risk, irreversible, external, financial, privacy-sensitive, or reputation-sensitive actions more deliberate.
+## Set ambition deliberately
+
+- **R1 — Optimize:** Reduce effort while preserving the current product and mental model.
+- **R2 — Recompose:** Redesign the human/AI division of labor while keeping the product recognizable.
+- **R3 — AI-Native:** Redesign from the underlying goal without treating current screens or features as fixed.
+- **R4 — Agent-Native:** Turn recurring work into persistent, policy-bound delegation with monitoring and exception handling.
+
+Honor an explicit ambition. Otherwise use **Dual-track**: a practical R1/R2 next step plus an R3 North Star, with R4 only when justified. A North Star must change at least one of interaction, responsibility, context acquisition, execution, confirmation, recovery, or continuity; a prompt box or chat panel alone does not qualify.
+
+## Produce a cross-functional delivery package
+
+For full work, produce a short **Decision Brief** followed by modular appendices:
+
+1. **Decision Brief** — goal, evidence, recommendation, expected value, largest risk, and gate status.
+2. **Evidence & Baseline Pack** — current/analogue task chain, Evidence Ledger, evidence level, metric tree, and data gaps.
+3. **Target Experience Blueprint** — Current/Analogue → Practical → AI-Native North Star with actor ownership and recovery.
+4. **Interaction & Autonomy Specification** — states, previews, confirmations, edit/partial apply, stop, undo, escalation, history, and fallback.
+5. **System Implementation Blueprint** — AI capability boundaries, context, data provenance, tools/APIs, permissions, cost, observability, human operations, and failure modes.
+6. **Delivery Roadmap** — testable vertical slices, dependencies, owners, risks, and gates.
+7. **Evaluation Kit** — tasks, observation sheet, interview questions, event instrumentation, metric definitions, thresholds, pilot design, and rollback conditions.
+
+Read [references/implementation-blueprint.md](references/implementation-blueprint.md) before producing sections 3–7 or claiming build readiness. Use [references/autonomy-framework.md](references/autonomy-framework.md) for any consequential, external, persistent, or permissioned action.
+
+## Judge success without false precision
+
+Do not use a single maturity total such as `/40`. Keep three judgments separate:
+
+1. **Design quality:** mark each relevant dimension `Ready`, `At risk`, `Not ready`, or `Unknown`, with a reason.
+2. **Evidence confidence:** state the evidence level and what would change the conclusion.
+3. **Outcome performance:** compare agreed metrics only after observation or testing.
+
+Treat efficiency as successful only when at least one preselected efficiency measure improves and agreed guardrails for task success, output quality, safety, control, and recovery are maintained. Include cognitive load, comprehensibility, trust calibration, and accessibility when relevant. Set project-specific thresholds before testing; never invent a universal uplift target.
+
+Read [references/method-foundations.md](references/method-foundations.md) for the stable methodological basis and rules for citing primary sources in formal work.
+
+## Guardrails
+
+- Match initiative to risk, reversibility, confidence, permission, and user expectations.
 - Distinguish suggestion, draft, prepared action, execution, and committed external action.
-- Use preview for material changes; require confirmation at meaningful commitment boundaries, not at every step.
-- Provide stop, edit, partial apply, undo or rollback, activity history, and resumable recovery in proportion to autonomy.
-- Reveal scope, permissions, sources, assumptions, confidence, and external impact when they affect trust or decisions.
-- Preserve progress after failure. Explain what happened, offer alternatives, accept correction, and resume from the current state.
-- Show actionable progress and status, not hidden chain-of-thought.
-- Never recommend silent autonomous execution for actions that exceed granted authority or could create unacceptable harm.
+- Confirm at meaningful commitment boundaries, not before every reversible step.
+- Provide edit, partial apply, stop, undo or compensation, history, and resumable recovery in proportion to autonomy.
+- Show actionable status, scope, sources, assumptions, and external impact; do not expose hidden chain-of-thought.
+- Preserve progress after failure and provide a manual or human fallback when automation is not dependable.
+- Do not increase autonomy until representative outcomes, policy, permissions, monitoring, and recovery are adequate.
 
 ## Starter commands
 
-- `Review this flow` — run the default Dual-track review.
-- `Optimize this flow` — use R1.
-- `Recompose this workflow` — use R2.
-- `Make this AI-native` — use R3.
-- `Make this agent-native` — use R4.
-- `Compare practical vs North Star` — compare R2 with R3/R4.
-- `Review autonomy and guardrails` — focus on action boundaries and risk.
-- `Run a quick AI-native review` — return the compressed format.
+- `Help me turn this rough idea into an AI-native system` — guided build with adaptive questions.
+- `Review this flow` — quick or full review based on available context.
+- `Build an implementation-ready blueprint` — complete stages 1–9.
+- `Optimize this flow` — R1.
+- `Recompose this workflow` — R2.
+- `Make this AI-native` — R3.
+- `Make this agent-native` — R4.
+- `Prove whether this actually saves time` — baseline and evaluation focus.
+- `Create the evaluation kit` — metrics, research, instrumentation, pilot, and thresholds.
+- `Beginner mode`, `Standard mode`, or `Expert mode` — override adaptation.
 
 ## Quality bar
 
-- Make concrete judgments; avoid generic advice.
-- Focus on workflow and responsibility allocation before visual polish.
-- Replace removed steps with a coherent operating model, not magic automation.
-- Name the context, tools, permissions, data, and system capabilities the target flow requires.
-- Treat correction and recovery as primary paths, not edge cases.
-- Recommend chat only when conversation is the right interaction; prefer structured controls, direct manipulation, inline suggestions, editable previews, diffs, or activity views when they fit better.
-- Do not optimize the `/40` score mechanically; deliberate low autonomy can be correct for high-risk domains.
+- Make concrete, evidence-bounded judgments; never hide uncertainty behind polished language.
+- Improve the operating model before polishing screens.
+- Replace removed work with explicit capabilities and ownership, not magic automation.
+- Make the next action executable for the user's current level and resources.
+- Keep the Decision Brief readable; place depth in modular appendices.
+- Use [references/examples.md](references/examples.md) as patterns when the input is underspecified, never as evidence for the user's project.

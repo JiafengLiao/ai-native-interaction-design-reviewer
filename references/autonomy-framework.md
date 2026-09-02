@@ -223,3 +223,13 @@ Advance autonomy when:
 - Stop, correction, and recovery work reliably
 
 Reduce autonomy when context changes, failure rates rise, risk increases, or user trust is not established. Let users inspect and revise the policy, not merely toggle “autopilot.”
+
+### Evidence requirements by progression
+
+- **Suggest:** Validate that suggestions are understandable, relevant, and easy to ignore or correct.
+- **Prepare:** Validate output quality, context provenance, editability, and preservation of user work.
+- **Execute with approval:** Validate commitment comprehension, tool verification, partial failure, and recovery.
+- **Execute and notify:** Require representative successful outcomes, bounded policy, reliable monitoring, and tested rollback or compensation.
+- **Monitor and escalate:** Require explicit standing scope, alert-quality thresholds, exception ownership, stop controls, and periodic policy review.
+
+Treat these as minimum evidence categories, not universal sample-size rules. Use the Evidence Ledger and project-specific pilot thresholds. A high-quality design concept alone is never evidence that standing autonomy is ready.
