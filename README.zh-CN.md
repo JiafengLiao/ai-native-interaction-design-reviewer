@@ -6,7 +6,7 @@
 
 把一个粗略想法、现有流程、截图、PRD 或原型，转化为真正值得构建的最小 AI 系统：对用户有用，清楚界定 AI 该做与不该做的事，能够安全运行，也可以被实际验证。
 
-这是一个适用于 Codex 的技能，无论你是第一次做产品，还是经验丰富的产品团队，都可以使用。它会先解释陌生概念，再使用专业术语，并根据你提供的材料自动调整引导深度。
+这是一个遵循开放 Agent Skills 格式的可移植技能，既可用于 Codex，也可用于其他支持该格式的 Coding Agent。无论你是第一次做产品，还是经验丰富的产品团队，都可以使用。它会先解释陌生概念，再使用专业术语，并根据你提供的材料自动调整引导深度。
 
 > AI 原生不等于到处增加聊天框。它意味着从用户真正想完成的事情出发，删除不必要的工作，再把任务分配给最适合完成它的人或 AI。
 
@@ -107,14 +107,35 @@
 
 ## 安装
 
-把仓库克隆到 Codex 使用的技能目录：
+不同 Coding Agent 的安装目录并不完全一致。最简单的共享安装方式适用于 Codex、Cursor、Gemini CLI 和 GitHub Copilot：
 
 ```bash
+mkdir -p "$HOME/.agents/skills"
 git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.git \
-  "${CODEX_HOME:-$HOME/.codex}/skills/ai-native-interaction-design-reviewer"
+  "$HOME/.agents/skills/ai-native-interaction-design-reviewer"
 ```
 
-如果目标目录已经存在，请更新原仓库，不要直接覆盖。请保留目录结构，确保引用链接可以正常工作。
+Claude Code 使用自己的技能目录：
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.git \
+  "$HOME/.claude/skills/ai-native-interaction-design-reviewer"
+```
+
+| Coding Agent | 个人安装位置 | 项目安装位置 | 刷新或其他方式 |
+|---|---|---|---|
+| [Codex](https://developers.openai.com/codex/skills) | `~/.agents/skills/<skill-name>` | `.agents/skills/<skill-name>` | 通常自动发现改动；未出现时重启 |
+| [Cursor](https://cursor.com/docs/skills) | `~/.agents/skills/<skill-name>` 或 `~/.cursor/skills/<skill-name>` | `.agents/skills/<skill-name>` 或 `.cursor/skills/<skill-name>` | 也可在 Customize 中导入 GitHub 地址 |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/<skill-name>` | `.claude/skills/<skill-name>` | 会监测已有技能目录中的改动 |
+| [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `~/.agents/skills/<skill-name>` 或 `~/.gemini/skills/<skill-name>` | `.agents/skills/<skill-name>` 或 `.gemini/skills/<skill-name>` | 可运行 `gemini skills install <repo-url>`；必要时执行 `/skills reload` |
+| [GitHub Copilot](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) | `~/.agents/skills/<skill-name>` 或 `~/.copilot/skills/<skill-name>` | `.agents/skills/<skill-name>` 或 `.github/skills/<skill-name>` | 支持 `gh skill`；Copilot CLI 可重新加载技能 |
+
+团队协作或云端 Agent 建议使用项目目录，并把技能提交到代码仓库。个人主目录中的技能不一定会被复制到远程工作环境。
+
+如果目标目录已经存在，请使用 `git pull` 更新，不要直接覆盖。请保留完整目录结构，因为 `SKILL.md` 会通过相对路径加载 `references/`。其他 Agent 可以忽略 `agents/openai.yaml`，它只是 Codex 的可选元数据。
+
+如果某个 Coding Agent 不原生支持 Agent Skills，可以明确要求它读取 `SKILL.md`，并保留完整仓库供它打开引用文件；是否能够自动发现和调用，取决于该 Agent。
 
 ## 完整蓝图可以包含
 

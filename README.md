@@ -6,7 +6,7 @@
 
 Turn a rough idea, workflow, screenshot, PRD, or prototype into the smallest evidence-backed AI system worth building: useful to people, clear about what AI should and should not do, safe to operate, and ready to test.
 
-This Codex skill is for first-time builders and experienced product teams alike. It explains unfamiliar concepts before using professional terminology and adapts its depth to the material you bring.
+This portable Agent Skill works with Codex and other coding agents that support the open Agent Skills format. It is for first-time builders and experienced product teams alike, explains unfamiliar concepts before using professional terminology, and adapts its depth to the material you bring.
 
 > AI-native does not mean adding chat everywhere. It means starting from the user's real goal, removing unnecessary work, and giving people and AI the responsibilities each can handle best.
 
@@ -107,14 +107,35 @@ You do not need to learn these codes to use the skill.
 
 ## Install
 
-Clone the repository into the skills directory used by Codex:
+Installation paths differ by coding agent. The simplest shared setup works with Codex, Cursor, Gemini CLI, and GitHub Copilot:
 
 ```bash
+mkdir -p "$HOME/.agents/skills"
 git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.git \
-  "${CODEX_HOME:-$HOME/.codex}/skills/ai-native-interaction-design-reviewer"
+  "$HOME/.agents/skills/ai-native-interaction-design-reviewer"
 ```
 
-If the destination already exists, update that repository instead of cloning over it. Keep the folder structure unchanged so the reference links continue to work.
+Claude Code uses its own skills directory:
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+git clone https://github.com/JiafengLiao/ai-native-interaction-design-reviewer.git \
+  "$HOME/.claude/skills/ai-native-interaction-design-reviewer"
+```
+
+| Coding agent | Personal installation | Project installation | Reload or alternative |
+|---|---|---|---|
+| [Codex](https://developers.openai.com/codex/skills) | `~/.agents/skills/<skill-name>` | `.agents/skills/<skill-name>` | Changes are detected automatically; restart if the skill does not appear |
+| [Cursor](https://cursor.com/docs/skills) | `~/.agents/skills/<skill-name>` or `~/.cursor/skills/<skill-name>` | `.agents/skills/<skill-name>` or `.cursor/skills/<skill-name>` | Can also import the GitHub URL from Customize |
+| [Claude Code](https://code.claude.com/docs/en/skills) | `~/.claude/skills/<skill-name>` | `.claude/skills/<skill-name>` | Watches existing skill directories for changes |
+| [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) | `~/.agents/skills/<skill-name>` or `~/.gemini/skills/<skill-name>` | `.agents/skills/<skill-name>` or `.gemini/skills/<skill-name>` | `gemini skills install <repo-url>`; then `/skills reload` if needed |
+| [GitHub Copilot](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) | `~/.agents/skills/<skill-name>` or `~/.copilot/skills/<skill-name>` | `.agents/skills/<skill-name>` or `.github/skills/<skill-name>` | Supports `gh skill`; Copilot CLI can reload skills |
+
+For a team or cloud agent, prefer the project path and commit the skill with the repository. Personal home-directory skills may not be copied to remote workers.
+
+If the destination already exists, update it with `git pull` instead of cloning over it. Keep the complete directory structure because `SKILL.md` loads files from `references/` by relative path. Other agents can ignore `agents/openai.yaml`, which contains optional Codex-specific metadata.
+
+If a coding agent does not support Agent Skills natively, ask it to read `SKILL.md` and keep the repository available so it can open the referenced files. Automatic discovery and invocation will depend on that agent.
 
 ## What a full blueprint can include
 
