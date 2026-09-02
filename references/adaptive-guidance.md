@@ -5,12 +5,13 @@ Use this reference to make the same rigorous method usable by people with differ
 ## Table of contents
 
 1. Detect the working mode
-2. Run beginner guidance
-3. Ask high-value questions
-4. Translate terminology
-5. Handle uncertainty
-6. Show progress
-7. Compress for experts
+2. Introduce the skill in plain language
+3. Run beginner guidance
+4. Ask high-value questions
+5. Translate terminology
+6. Handle uncertainty
+7. Show progress
+8. Compress for experts
 
 ## 1. Detect the working mode
 
@@ -37,7 +38,27 @@ Infer a mode without testing or labeling the user.
 
 Do not infer expertise from writing style, job title, language fluency, or brevity alone. Start with the least burdensome suitable mode. Let the user say `Beginner mode`, `Standard mode`, or `Expert mode` at any time.
 
-## 2. Run beginner guidance
+## 2. Introduce the skill in plain language
+
+When the user has not used the method before, begin with a short orientation instead of a framework diagnosis. Explain that the skill can help them:
+
+- clarify what the person is really trying to accomplish;
+- understand how the work happens today and where it becomes difficult;
+- decide what AI should suggest, prepare, do, or leave to a person;
+- design controls and recovery for mistakes;
+- turn the direction into something a team can build and test.
+
+Connect this overview directly to the user's request, then start with the smallest useful step. Do not list every stage, deliverable, level, or gate in the opening response.
+
+Good:
+
+> I can help you turn this reporting problem into a clearer workflow: first find where the time actually goes, then decide what AI should handle, and finally define a small test. To start, what happened the last time someone produced the report?
+
+Avoid:
+
+> You are at E0, so we will use Guided Build, target R1/R3, and assess G1 before G2.
+
+## 3. Run beginner guidance
 
 Ask only 1–3 questions per turn. Use this sequence:
 
@@ -57,7 +78,7 @@ Avoid:
 
 Do not front-load the full method. Produce useful partial artifacts after each small answer.
 
-## 3. Ask high-value questions
+## 4. Ask high-value questions
 
 Ask only questions whose answers would change the goal, design, autonomy, risk, or test. Prefer recent concrete behavior over opinions.
 
@@ -97,7 +118,7 @@ Ask only questions whose answers would change the goal, design, autonomy, risk, 
 - What must not become worse?
 - What result would make the team stop or roll back?
 
-## 4. Translate terminology
+## 5. Translate terminology
 
 Use plain language first. Introduce the professional term in parentheses only when it helps handoff.
 
@@ -115,7 +136,17 @@ Use plain language first. Introduce the professional term in parentheses only wh
 | Evidence confidence | How sure are we, and what have we actually seen? |
 | Success threshold | What result counts as good enough to continue? |
 
-## 5. Handle uncertainty
+Translate framework codes the same way:
+
+| Internal shorthand | User-facing first explanation |
+|---|---|
+| E0–E4 | How strongly is this particular claim supported: only stated, walked through, observed, measured, or tested? |
+| R1–R4 | How much are we changing: improve today's flow, rearrange the work, rethink it from the goal, or delegate it continuously? |
+| G1–G5 | Which decision is ready now: pursue the direction, run a test, commit to the solution, start building, or start a pilot? |
+
+Never output a bare code. Use “walkthrough-only evidence (E1)” or “improve the current flow (R1)” on first use. For beginners, omit the parenthetical code unless it adds real value. When several codes appear in a formal artifact, add a nearby one-line legend.
+
+## 6. Handle uncertainty
 
 When the user says “I don't know”:
 
@@ -134,7 +165,7 @@ Use four labels consistently:
 
 Never silently turn an assumption into a fact later in the work.
 
-## 6. Show progress
+## 7. Show progress
 
 At the end of a guided stage, use a compact update:
 
@@ -154,7 +185,7 @@ Next step
 
 For beginners, add a short action checklist with owner and expected result. Avoid dumping every appendix before the user needs it.
 
-## 7. Compress for experts
+## 8. Compress for experts
 
 - Do not ask for information already present in artifacts.
 - State mapped assumptions and gaps in one block.

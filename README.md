@@ -4,6 +4,16 @@ An installable Codex skill that helps anyone—from a first-time builder to an e
 
 The skill does more than review screens. It guides the work from user goal and baseline through workflow redesign, human/AI responsibility, interaction states, system requirements, evaluation, and pilot planning.
 
+You do not need to know product-design or AI terminology. The skill first explains what it can help with, asks a few concrete questions in everyday language, and introduces professional terms only when they become useful.
+
+## What it helps you do
+
+1. Clarify what the person is really trying to accomplish.
+2. Understand how the work happens today and where effort, waiting, or mistakes occur.
+3. Decide what a person should control and what AI may suggest, prepare, or do.
+4. Design a safer experience, including confirmation, correction, and recovery.
+5. Turn the direction into a practical build-and-test plan.
+
 ## What makes it different
 
 - **Works at any experience level:** automatically adapts to Beginner, Standard, or Expert mode without lowering the final quality bar.
@@ -24,12 +34,12 @@ System Design → Implementation Blueprint → Evaluation → Pilot & Learning
                          ↖──────── evidence-driven return ────────↙
 ```
 
-Evidence is tracked from E0 (stated) through E4 (tested). Missing metrics do not stop the work, but E0/E1 evidence cannot be presented as proven efficiency.
+The method tracks how strongly each claim is supported—from something only stated, through walkthrough and observation, to measurement or testing. In formal work these levels are abbreviated E0–E4, but the skill explains the meaning before using a code. Missing metrics do not stop the work; an untested belief simply cannot be presented as proven efficiency.
 
-The default design view is Dual-track:
+The default design view shows two horizons:
 
-- **Practical:** an implementable R1/R2 next iteration.
-- **AI-Native North Star:** an R3 redesign of the operating model, with R4 persistent delegation only when useful and safe.
+- **Practical next step:** improve today's flow or rearrange who does what across people and AI (called R1/R2 in the formal framework).
+- **AI-native North Star:** rethink the workflow from the person's underlying goal (R3), adding persistent delegation (R4) only when it is useful and safe.
 
 ## Install
 
@@ -83,10 +93,10 @@ and architecture. Preserve evidence IDs and identify unresolved gate conditions.
 ### Focused commands
 
 - `Review this flow`
-- `Optimize this flow` — R1
-- `Recompose this workflow` — R2
-- `Make this AI-native` — R3
-- `Make this agent-native` — R4
+- `Improve this flow without fundamentally changing it`
+- `Redesign who does what across people and AI`
+- `Rethink this from the user's real goal`
+- `Turn this recurring work into safe ongoing delegation`
 - `Prove whether this actually saves time`
 - `Create the evaluation kit`
 - `Review autonomy and guardrails`
