@@ -1,5 +1,7 @@
 # AI-Native Interaction Design Reviewer
 
+[**English**](README.md) | [简体中文](README.zh-CN.md)
+
 **Design AI products that do less—and work better.**
 
 Turn a rough idea, workflow, screenshot, PRD, or prototype into the smallest evidence-backed AI system worth building: useful to people, clear about what AI should and should not do, safe to operate, and ready to test.
@@ -132,6 +134,7 @@ Only the modules needed for the decision, handoff, or risk are produced:
 ai-native-interaction-design-reviewer/
 ├── SKILL.md
 ├── README.md
+├── README.zh-CN.md
 ├── agents/
 │   └── openai.yaml
 └── references/
